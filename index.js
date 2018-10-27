@@ -41,3 +41,34 @@ var selectSort = array => {
 
   return array;
 };
+
+var insertionSort = array => {
+  const length = array.length - 1;
+
+  for (let i = length - 1; i >= 0; i--) {
+    const element = array[i];
+
+    // find place
+    let newElementIndex = length;
+
+    for (let j = i; j <= length; j++) {
+      if (array[j] > element) {
+        newElementIndex = j;
+      }
+    }
+
+    // move elements to left
+    for (let j = i; j < newElementIndex; j++) {
+      const temp = array[i];
+
+      array[j] = array[j + 1];
+      array[j + 1] = temp;
+    }
+
+    array[newElementIndex] = element;
+
+    console.log(array);
+  }
+
+  return array;
+};
