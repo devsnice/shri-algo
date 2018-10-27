@@ -48,24 +48,15 @@ var insertionSort = array => {
   for (let i = length - 1; i >= 0; i--) {
     const element = array[i];
 
-    // find place
-    let newElementIndex = length;
+    let j = i + 1;
 
-    for (let j = i; j <= length; j++) {
-      if (array[j] > element) {
-        newElementIndex = j;
-      }
-    }
-
-    // move elements to left
-    for (let j = i; j < newElementIndex; j++) {
-      const temp = array[i];
-
+    while (array[j] > element && j < length) {
       array[j] = array[j + 1];
-      array[j + 1] = temp;
+
+      j++;
     }
 
-    array[newElementIndex] = element;
+    array[j] = element;
 
     console.log(array);
   }
