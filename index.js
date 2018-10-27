@@ -1,5 +1,4 @@
 var bubbleSort = array => {
-  let isSorted = false;
   const length = array.length;
 
   // n обходов, можно заменить на while is not sorted
