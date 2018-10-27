@@ -125,7 +125,7 @@ class Queue {
     return this;
   }
 
-  pop() {
+  get() {
     return this.elements.shift();
   }
 
@@ -146,7 +146,7 @@ var traverseInBreadth = tree => {
   nodeQueue.push(rootNode);
 
   while (!nodeQueue.empty()) {
-    const node = nodeQueue.pop();
+    const node = nodeQueue.get();
 
     // show element
     console.log(node.val);
@@ -157,5 +157,3 @@ var traverseInBreadth = tree => {
     });
   }
 };
-
-traverseInBreadth(tempTree);
