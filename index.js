@@ -240,3 +240,33 @@ var getSimpleNumbersUntilN = n => {
 
   return simpleNumbers;
 };
+
+var binarySearch = (array, number, left, right) => {
+  if (!left) {
+    left = 0;
+  }
+
+  if (!right) {
+    right = array.length - 1;
+  }
+
+  if (left === right) {
+    if (array[left] === number) {
+      return left;
+    } else {
+      return -1;
+    }
+  }
+
+  const middle = Math.ceil((right - left) / 2);
+
+  if (array[middle] > number) {
+    return binarySearch(array, number, 0, middle - 1);
+  } else if (array[middle] < number) {
+    return binarySearch(array, number, middle + 1, right);
+  } else {
+    return middle;
+  }
+};
+
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8], 4));
