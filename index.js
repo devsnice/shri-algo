@@ -63,3 +63,51 @@ var insertionSort = array => {
 
   return array;
 };
+
+const tempTree = [
+  {
+    val: 1,
+    ch: [
+      {
+        val: 2,
+        ch: [
+          {
+            val: 5,
+            ch: []
+          },
+          {
+            val: 6,
+            ch: []
+          }
+        ]
+      },
+      {
+        val: 3,
+        ch: []
+      },
+      {
+        val: 4,
+        ch: [
+          {
+            val: 7,
+            ch: []
+          },
+          {
+            val: 8,
+            ch: []
+          }
+        ]
+      }
+    ]
+  }
+];
+
+var traverseInDeep = tree => {
+  tree.forEach(node => {
+    console.log(node.val);
+
+    traverseInDeep(node.ch);
+  });
+};
+
+traverseInDeep(tempTree);
