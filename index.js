@@ -110,4 +110,44 @@ var traverseInDeep = tree => {
   });
 };
 
-traverseInDeep(tempTree);
+class Queue {
+  constructor() {
+    this.elements = [];
+  }
+
+  push(element) {
+    this.elements.push(element);
+
+    return this;
+  }
+
+  pop() {
+    return this.elements.shift();
+  }
+
+  empty() {
+    return this.elements.length === 0;
+  }
+}
+
+var traverseInBreadth = tree => {
+  const nodeQueue = new Queue();
+
+  const rootNode = tree[0];
+
+  nodeQueue.push(rootNode);
+
+  while (!nodeQueue.empty()) {
+    const node = nodeQueue.pop();
+
+    // show element
+    console.log(node.val);
+
+    // add elements to tree
+    node.ch.forEach(childNode => {
+      nodeQueue.push(childNode);
+    });
+  }
+};
+
+traverseInBreadth(tempTree);
