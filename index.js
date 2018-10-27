@@ -1,13 +1,19 @@
 var bubbleSort = array => {
-  for (let i = 0, length = array.length; i < length; i++) {
-    for (let j = i + 1; j < length; j++) {
-      if (array[i] > array[j]) {
-        const swapTemp = array[i];
+  let isSorted = false;
+  const length = array.length;
 
-        array[i] = array[j];
-        array[j] = swapTemp;
+  // n обходов, можно заменить на while is not sorted
+  for (let i = 0; i < length - 1; i++) {
+    // сравниваем все элементы попарно
+    for (let j = 0; j < length - i - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        const swapTemp = array[j];
+
+        array[j] = array[j + 1];
+        array[j + 1] = swapTemp;
       }
     }
+    console.log(array);
   }
 
   return array;
