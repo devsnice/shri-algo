@@ -157,3 +157,62 @@ var traverseInBreadth = tree => {
     });
   }
 };
+
+/**
+ * Correct brackets
+ */
+
+class Stack {
+  constructor() {
+    this.elements = [];
+  }
+
+  push(element) {
+    this.elements.push(element);
+
+    return this;
+  }
+
+  pop() {
+    return this.elements.pop();
+  }
+
+  empty() {
+    return this.elements.length === 0;
+  }
+}
+
+var isCorrectBrackets = str => {
+  const bracketsStack = new Stack();
+
+  const bracketOpenTypes = ["{", "[", "("];
+  const bracketCloseTypes = ["}", "]", ")"];
+
+  const bracketsMatch = {
+    "{": "}",
+    "[": "]",
+    "(": ")"
+  };
+
+  for (let i = 0; i < str.length; i++) {
+    const symbol = str[i];
+
+    if (bracketOpenTypes.includes(symbol)) {
+      bracketsStack.push(symbol);
+    } else if (bracketCloseTypes.includes(symbol)) {
+      const lastOpenBracketInString = bracketsStack.pop();
+
+      // it's incorrect if close bracket doesn't match open bracket
+      if (bracketsMatch[lastOpenBracketInString] !== symbol) {
+        return false;
+      }
+    }
+  }
+
+  // it's incorrect if there's open brackets
+  if (!bracketsStack.empty()) {
+    return false;
+  }
+
+  return true;
+};
