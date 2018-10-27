@@ -17,3 +17,27 @@ var bubbleSort = array => {
 
   return array;
 };
+
+var selectSort = array => {
+  const length = array.length - 1;
+
+  for (let i = length; i > 0; i--) {
+    let max = array[0];
+    let maxIndex = 0;
+
+    // find max
+    for (let j = 0; j <= i; j++) {
+      if (max < array[j]) {
+        max = array[j];
+        maxIndex = j;
+      }
+    }
+
+    array[maxIndex] = array[i];
+    array[i] = max;
+
+    console.log(array);
+  }
+
+  return array;
+};
