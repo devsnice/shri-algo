@@ -102,6 +102,10 @@ const tempTree = [
   }
 ];
 
+/**
+ * Traverse in deep
+ * @param {*} tree
+ */
 var traverseInDeep = tree => {
   tree.forEach(node => {
     console.log(node.val);
@@ -130,6 +134,10 @@ class Queue {
   }
 }
 
+/**
+ * traverseInBreadth
+ * @param {*} tree
+ */
 var traverseInBreadth = tree => {
   const nodeQueue = new Queue();
 
