@@ -216,3 +216,27 @@ var isCorrectBrackets = str => {
 
   return true;
 };
+
+/**
+ * Simple numbers
+ */
+
+var getSimpleNumbersUntilN = n => {
+  const simpleNumbers = [];
+
+  function isSimpleNumber(n) {
+    const isSimple = simpleNumbers.every(number => number === 1 || n % number !== 0);
+
+    return isSimple;
+  }
+
+  for (let i = 1; i < n; i++) {
+    const isSimple = isSimpleNumber(i);
+
+    if (isSimple) {
+      simpleNumbers.push(i);
+    }
+  }
+
+  return simpleNumbers;
+};
