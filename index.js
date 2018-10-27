@@ -242,12 +242,13 @@ var getSimpleNumbersUntilN = n => {
 };
 
 var binarySearch = (array, number, left, right) => {
-  if (!left) {
+  // init arrays
+  if (left === undefined) {
     left = 0;
   }
 
-  if (!right) {
-    right = array.length - 1;
+  if (right === undefined) {
+    right = array.length > 0 ? array.length - 1 : 0;
   }
 
   if (left === right) {
@@ -258,7 +259,7 @@ var binarySearch = (array, number, left, right) => {
     }
   }
 
-  const middle = Math.ceil((right - left) / 2);
+  const middle = Math.ceil((right - left) / 2 + left);
 
   if (array[middle] > number) {
     return binarySearch(array, number, 0, middle - 1);
@@ -268,5 +269,3 @@ var binarySearch = (array, number, left, right) => {
     return middle;
   }
 };
-
-console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8], 4));
